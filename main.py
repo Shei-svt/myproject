@@ -1,34 +1,33 @@
-def calcular_pago(numero_piezas, precio_unitario):
-    monto_total = numero_piezas * precio_unitario
+def cal_pago(num_piezas, pre_uni):
+    monto_tot = num_piezas * pre_uni
     
-    if monto_total > 500000:
-        inversion_empresa = monto_total * 0.55
-        prestamo_banco = monto_total * 0.30
-        credito_fabricante = monto_total * 0.15
+    if monto_tot > 500000:
+        inver_empre = monto_tot * 0.55
+        pres_banco = monto_tot * 0.30
+        credi_fab = monto_tot * 0.15
     else:
-        inversion_empresa = monto_total * 0.70
-        prestamo_banco = 0
-        credito_fabricante = monto_total * 0.30
+        inver_empre = monto_tot * 0.70
+        pres_banco = 0
+        credi_fab = monto_tot * 0.30
     
-    interes_fabricante = credito_fabricante * 0.20
-    total_credito_fabricante = credito_fabricante + interes_fabricante
+    inter_fab = credi_fab * 0.20
+    tot_cred_fab = credi_fab + inter_fab
     
     print("\nResumen de Pago:")
-    print(f"Número de piezas a comprar: {numero_piezas}")
-    print(f"Precio unitario de cada pieza: ${precio_unitario:,.2f}")
-    print(f"Monto total de la compra: ${monto_total:,.2f}")
-    print(f"Inversión de la empresa: ${inversion_empresa:,.2f}")
-    print(f"Préstamo del banco: ${prestamo_banco:,.2f}")
-    print(f"Crédito al fabricante (incluyendo intereses): ${total_credito_fabricante:,.2f}")
+    print(f"Número de piezas a comprar: {num_piezas}")
+    print(f"Precio unitario de cada pieza: ${pre_uni:,.2f}")
+    print(f"Monto total de la compra: ${monto_tot:,.2f}")
+    print(f"Inversión de la empresa: ${inver_empre:,.2f}")
+    print(f"Préstamo del banco: ${pres_banco:,.2f}")
+    print(f"Crédito al fabricante (incluyendo intereses): ${tot_cred_fab:,.2f}")
     
     return {
-        "monto_total": monto_total,
-        "inversion_empresa": inversion_empresa,
-        "prestamo_banco": prestamo_banco,
-        "credito_fabricante": total_credito_fabricante
+        "monto_total": monto_tot,
+        "inversion_empresa": inver_empre,
+        "prestamo_banco": pres_banco,
+        "credito_fabricante": tot_cred_fab
     }
 
-# Ejemplo de uso
-numero_piezas = int(input("Ingrese el número de piezas a comprar: "))
-precio_unitario = float(input("Ingrese el precio unitario de la pieza: "))
-calcular_pago(numero_piezas, precio_unitario)
+num_piezas = int(input("Ingrese el número de piezas a comprar: "))
+pre_uni = float(input("Ingrese el precio unitario de la pieza: "))
+cal_pago(num_piezas, pre_uni)
